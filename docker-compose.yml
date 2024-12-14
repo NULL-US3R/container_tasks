@@ -1,0 +1,15 @@
+services:
+  time:
+    build: ./2/
+    volumes:
+      - shared:/app/shared
+
+  app:
+    build: ./1/
+    depends_on:
+      - time
+    volumes:
+      - shared:/app/shared
+
+volumes:
+  shared:
